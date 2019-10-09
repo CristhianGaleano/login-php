@@ -7,6 +7,7 @@
 	include '../entidades/Usuario.php';
 
 
+// Con la importación de la clase conexion(previamente) podemos extenderla para usar el metodo internamente( en esta clase)
 class UsuarioDao extends Conexion{
 
 
@@ -31,7 +32,7 @@ class UsuarioDao extends Conexion{
 	}
 
 	/**
-	 * [login description]
+	 * [Validad las credenciales ingresada con la BD]
 	 * @param  [type] $usuario [description]
 	 * @return [boolean]          [description]
 	 */
