@@ -26,6 +26,6 @@
  }
 
 
- Conexion::conectar();
+ #Conexion::conectar();
 
  ?>
