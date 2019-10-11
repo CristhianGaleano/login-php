@@ -1,21 +1,28 @@
 <?php 
 
-import '../datos/UsuarioDao.php';
+include '../datos/UsuarioDao.php';
 /**
 * 
 */
 class UsuarioControlador
 {
 
+/**
+ * [Envia el objeto usuario seteado con los datos del login a usuario daro para validar a BD]
+ * @param  [text] $usuario  [description]
+ * @param  [text] $password [description]
+ * @return [type]           [description]
+ */
 	public static function login($usuario, $password){
+#		echo "On login-controller";
 
 		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
 		$obj_usuario = new Usuario();
-		$obj_usuario.setUsuario($usuario);
-		$obj_usuario.setPassword($password);
+		$obj_usuario->setUsuario($usuario);
+		$obj_usuario->setPassword($password);
 
 // Llamamos al metodo estatico
-		UsuarioDao::login($obj_usuario);		
+		echo UsuarioDao::login($obj_usuario);
 
 	}
 }

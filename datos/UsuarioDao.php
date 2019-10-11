@@ -17,7 +17,7 @@ class UsuarioDao extends Conexion{
 	 * Un metodo que nos permita conectar en todo momento
 	 */
 	
-	public static function getConexion{
+	public static function getConexion(){
 
 	/**
 	 * self: invocar la clase en si
@@ -37,25 +37,26 @@ class UsuarioDao extends Conexion{
 	 * @return [boolean]          [description]
 	 */
 	public static function login($usuario){
-
+#echo "On DAO-usuario";
 		$query = "SELECT id,nombre,email,usuario, privilegio, fecha_registro FROM usuarios WHERE usuario=:usuario AND password=:password";
 
 		/**
 		 * Call getConexion()
 		 */
 		self::getConexion();
-
+echo "<br>user: $usuario->getUsuario ,pass: $usuario->getPassword <br>";
 		$resultado = self::$cn->prepare($query);
 		$resultado->bindParam(":usuario",$usuario->getUsuario);
 		$resultado->bindParam(":password",$password->getPassword);
 
 		$resultado->execute();
-
-		if (count($resultado)) {
-			return true;
+		#var_dump($resultado);	
+var_dump( $resultado->rowCount() );
+		if ( $resultado->rowCount() > 0 ) {
+			return "Ok";
 		}
 
-		return false;
+		return "Falso";
 
 	}
 
