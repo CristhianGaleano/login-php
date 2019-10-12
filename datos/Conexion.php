@@ -15,7 +15,7 @@
 
  		try {
  			
- 			$cn = new PDO("mysql:host=localhost;dbname=login-php","root","1088264375C");
+ 			$cn = new PDO("mysql:host=localhost;dbname=login-php","root","");
  			return $cn;
 
  		} catch (PDOException $e) {

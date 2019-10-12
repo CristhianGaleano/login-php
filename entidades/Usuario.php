@@ -1,11 +1,14 @@
 <?php 
 
+
+
 /**
- * 
- */
+* 
+*/
 class Usuario
 {
-	
+
+
 	private $id;
 	private $nombre;
 	private $usuario;
@@ -13,7 +16,6 @@ class Usuario
 	private $password;
 	private $privilegio;
 	private $fecha_registro;
-
 
 
 	public function getId(){
@@ -73,6 +75,4 @@ class Usuario
 	}
 
 }
-
-
  ?>

@@ -37,26 +37,31 @@ class UsuarioDao extends Conexion{
 	 * @return [boolean]          [description]
 	 */
 	public static function login($usuario){
-#echo "On DAO-usuario";
+		// echo "Login";
+		$usuario = $usuario->getUsuario();
+		$password = $usuario->getPassword();
+
 		$query = "SELECT id,nombre,email,usuario, privilegio, fecha_registro FROM usuarios WHERE usuario=:usuario AND password=:password";
 
 		/**
 		 * Call getConexion()
 		 */
 		self::getConexion();
-echo "<br>user: $usuario->getUsuario ,pass: $usuario->getPassword <br>";
-		$resultado = self::$cn->prepare($query);
-		$resultado->bindParam(":usuario",$usuario->getUsuario);
-		$resultado->bindParam(":password",$password->getPassword);
 
+
+
+		$resultado = self::$cn->prepare($query);
+		$resultado->bindParam(":usuario", $usuario);
+		$resultado->bindParam(":password", $password);
+
+// var_dump($resultado);
 		$resultado->execute();
-		#var_dump($resultado);	
-var_dump( $resultado->rowCount() );
-		if ( $resultado->rowCount() > 0 ) {
-			return "Ok";
+// var_dump($resultado)
+		if ($resultado->rowCount() > 0) {
+			return 'Ok';
 		}
 
-		return "Falso";
+		return "false";
 
 	}
 
