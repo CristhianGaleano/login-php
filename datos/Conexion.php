@@ -15,7 +15,7 @@
 
  		try {
  			
- 			$cn = new PDO("mysql:host=localhost;dbname=login-php","root","");
+ 			$cn = new PDO("mysql:host=localhost;dbname=login-php","root","1088264375C");
  			return $cn;
 
  		} catch (PDOException $e) {
@@ -26,6 +26,6 @@
  }
 
 
- #Conexion::conectar();
+ 	#Conexion::conectar();
 
  ?>

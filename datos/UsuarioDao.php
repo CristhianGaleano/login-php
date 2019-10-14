@@ -38,10 +38,11 @@ class UsuarioDao extends Conexion{
 	 */
 	public static function login($usuario){
 		// echo "Login";
-		$usuario = $usuario->getUsuario();
-		$password = $usuario->getPassword();
+		// 
+		#$usuario = $usuario->getUsuario();
+		#$password = $usuario->getPassword();
 
-		$query = "SELECT id,nombre,email,usuario, privilegio, fecha_registro FROM usuarios WHERE usuario=:usuario AND password=:password";
+		$query = "SELECT * FROM usuarios WHERE usuario=:usuario AND password=:password";
 
 		/**
 		 * Call getConexion()
@@ -51,17 +52,21 @@ class UsuarioDao extends Conexion{
 
 
 		$resultado = self::$cn->prepare($query);
-		$resultado->bindParam(":usuario", $usuario);
-		$resultado->bindParam(":password", $password);
+		$resultado->bindParam(":usuario", $usuario->getUsuario());
+		$resultado->bindParam(":password", $usuario->getPassword());
 
 // var_dump($resultado);
 		$resultado->execute();
 // var_dump($resultado)
 		if ($resultado->rowCount() > 0) {
-			return 'Ok';
+			#Capturamos la informacion y realizar comparacion, se hace para evitar la inyeccion de codigo(hay metodos mejores)
+			$row = $resultado->fetch();
+			if ( $row['usuario'] == $usuario->getUsuario() && $row['password'] == $usuario->getPassword() ) {
+				return true;
+			}
 		}
 
-		return "false";
+		return false;
 
 	}
 
