@@ -52,8 +52,12 @@ class UsuarioDao extends Conexion{
 
 
 		$resultado = self::$cn->prepare($query);
-		$resultado->bindParam(":usuario", $usuario->getUsuario());
-		$resultado->bindParam(":password", $usuario->getPassword());
+		// Se comenta ya que en PHP 7.? presenta una restriccion por lo que toca utilizar bindValue()
+		// $resultado->bindParam(":usuario", $usuario->getUsuario());
+		// $resultado->bindParam(":password", $usuario->getPassword());
+
+		$resultado->bindValue(":usuario", $usuario->getUsuario());
+		$resultado->bindValue(":password", $usuario->getPassword());
 
 // var_dump($resultado);
 		$resultado->execute();
