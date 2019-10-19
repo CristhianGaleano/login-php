@@ -1,6 +1,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light|navbar-primary bg-primary|navbar-secondary bg-secondary|navbar-success bg-success|navbar-danger bg-danger|navbar-warning bg-warning|navbar-info bg-info|navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Login con PHP</a>
+      <a class="navbar-brand" href="login.php">Login con PHP</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,10 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Principal <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Principal <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.php">Registro</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#">Agencia</a>

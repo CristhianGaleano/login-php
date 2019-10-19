@@ -1,6 +1,3 @@
-
-
-
 <?php 
 	include 'partials/head.php';
 	include 'partials/menu.php';
