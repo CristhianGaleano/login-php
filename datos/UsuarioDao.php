@@ -59,17 +59,19 @@ class UsuarioDao extends Conexion{
 		$resultado->bindValue(":usuario", $usuario->getUsuario());
 		$resultado->bindValue(":password", $usuario->getPassword());
 
-// var_dump($resultado);
+#var_dump($resultado);
 		$resultado->execute();
 // var_dump($resultado)
 		if ($resultado->rowCount() > 0) {
 			#Capturamos la informacion y realizar comparacion, se hace para evitar la inyeccion de codigo(hay metodos mejores)
+			#echo '<br>On login <br>';
 			$row = $resultado->fetch();
+				#echo $row['usuario'] . "-" . $row['password'] . $usuario->getPassword();
 			if ( $row['usuario'] == $usuario->getUsuario() && $row['password'] == $usuario->getPassword() ) {
 				return true;
 			}
 		}
-
+#echo 'No salío';
 		return false;
 
 	}

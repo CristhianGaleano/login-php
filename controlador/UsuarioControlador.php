@@ -14,7 +14,7 @@ class UsuarioControlador
  * @return [type]           [description]
  */
 	public static function login($usuario, $password){
-	#	echo "On login-controller <br>";
+		#echo "On login-controller <br>";
 
 		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
 		$obj_usuario = new Usuario();
@@ -24,7 +24,7 @@ class UsuarioControlador
 	#	var_dump($obj_usuario);
 
 // Llamamos al metodo estatico
-		echo UsuarioDao::login($obj_usuario);
+		 return UsuarioDao::login($obj_usuario);
 
 	}
 }

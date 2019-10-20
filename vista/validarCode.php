@@ -2,6 +2,7 @@
 
 include '../controlador/UsuarioControlador.php';
 
+$resultado = array();
 
 if (isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])) {
 	
@@ -9,13 +10,17 @@ if (isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])) {
 	$txtPassword = $_POST['txtPassword']; 
 
 
-	$resultado = array('estado' => "true" );
+	$resultado = array('estado' => 'true' );
 
-	if (UsuarioControlador::login($txtUsuario,$txtPassword)) {
+	if (UsuarioControlador::login( $txtUsuario,$txtPassword )) {
+	#echo 'Disque true';
 		return print( json_encode( $resultado ) );
+	}else{
+	#	echo 'Disque falso';
+		$resultado = array('estado' => 'false' );
+		return print( json_encode( $resultado) );
+
 	}
 }
 
-$resultado = array('estado' => "false" );
-return print( json_encode( $resultado) );
  ?>
