@@ -1,7 +1,8 @@
 <?php 
 
 include '../controlador/UsuarioControlador.php';
-
+#para que retorne el response como un object
+header('Content-Type: application/json');
 $resultado = array();
 
 if (isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])) {
