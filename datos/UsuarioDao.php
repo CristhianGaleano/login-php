@@ -76,6 +76,47 @@ class UsuarioDao extends Conexion{
 
 	}
 
-}
+
+/**
+	 * Metodo que sirve para traer datos del usuario
+	 * @param  [type] $usuario [description]
+	 * @return [boolean]          [description]
+	 */
+	public static function get_usuario($usuario){
+		
+		$query = "SELECT id,nombre,usuario,privilegio,fecha_registro,email FROM usuarios WHERE usuario=:usuario AND password=:password LIMIT 1";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+		
+		$resultado->bindValue(":usuario", $usuario->getUsuario());
+		$resultado->bindValue(":password", $usuario->getPassword());
+
+		$resultado->execute();
+
+		$filas=$resultado->fetch();
+
+		#Creamos el objeto de tipo usuario
+		$usuario  = new Usuario();
+		$usuario->setId($filas['id']);
+		$usuario->setNombre($filas['nombre']);
+		$usuario->setUsuario($filas['usuario']);
+		$usuario->setEmail($filas['email']);
+		$usuario->setPrivilegio($filas['privilegio']);
+		$usuario->setFecha_registro($filas['fecha_registro']);
+
+		return $usuario;
+
+	}#END METHOD
+
+
+
+}#end clase
 
  ?>
