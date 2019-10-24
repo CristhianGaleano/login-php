@@ -2,8 +2,8 @@
 	include 'partials/head.php';
 	include 'partials/menu.php';
 	if ( isset($_SESSION['usuario']) ) {
-		if ($_SESSION['usuario']['privilegio'] == 2) {
-			header('location:usuario.php');
+		if ($_SESSION['usuario']['privilegio'] == 1) {
+			header('location:admin.php');
 		}
 	}
 	#header('location:login.php');
