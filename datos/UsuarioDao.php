@@ -122,9 +122,12 @@ class UsuarioDao extends Conexion{
 	 * @param  Object usuario [description]
 	 * @return boolean          [description]
 	 */
-	public static function registro($usuario){
+	public static function registro($usuario_obj){
 		
-		$query = "INSERT INTO usuarios (nombre,usuario,email,password,privilegio) VALUES nombre=:nombre,usuario=:usuario,email=:email,password=:password,privilegio=:privilegio";
+		// var_dump($usuario);
+
+
+		$query = "INSERT INTO usuarios(nombre,usuario,email,password,privilegio) VALUES (:nombre,:usuario,:email,:password,:privilegio)";
 
 		/**
 		 * Call getConexion()
@@ -134,20 +137,23 @@ class UsuarioDao extends Conexion{
 
 
 		$resultado = self::$cn->prepare($query);
-		 
 
-		$resultado->bindValue(":nombre", $usuario->getNombre());
-		$resultado->bindValue(":usuario", $usuario->getUsuario());
-		$resultado->bindValue(":email", $usuario->getEmail());
-		$resultado->bindValue(":password", $usuario->getPassword());
-		$resultado->bindValue(":privilegio", $usuario->getPrivilegio());
+
+
+
+		$resultado->bindValue(":nombre", $usuario_obj->getNombre());
+		$resultado->bindValue(":usuario", $usuario_obj->getUsuario());
+		$resultado->bindValue(":email", $usuario_obj->getEmail());
+		$resultado->bindValue(":password", $usuario_obj->getPassword());
+		$resultado->bindValue(":privilegio",$usuario_obj->getPrivilegio());
 
 		if ($resultado->execute()) {
+			#echo "<br>TRUE<br>";
 			return true;
 		}
 
 		return false;
-
+echo "false";
 	}
 
 
