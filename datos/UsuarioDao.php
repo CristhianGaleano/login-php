@@ -117,6 +117,41 @@ class UsuarioDao extends Conexion{
 
 
 
+	/**
+	 * Registra un usuario
+	 * @param  Object usuario [description]
+	 * @return boolean          [description]
+	 */
+	public static function registro($usuario){
+		
+		$query = "INSERT INTO usuarios (nombre,usuario,email,password,privilegio) VALUES nombre=:nombre,usuario=:usuario,email=:email,password=:password,privilegio=:privilegio";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+		 
+
+		$resultado->bindValue(":nombre", $usuario->getNombre());
+		$resultado->bindValue(":usuario", $usuario->getUsuario());
+		$resultado->bindValue(":email", $usuario->getEmail());
+		$resultado->bindValue(":password", $usuario->getPassword());
+		$resultado->bindValue(":privilegio", $usuario->getPrivilegio());
+
+		if ($resultado->execute()) {
+			return true;
+		}
+
+		return false;
+
+	}
+
+
+
 }#end clase
 
  ?>

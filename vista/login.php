@@ -17,6 +17,7 @@
 					 <div class="panel panel-default">
 					 	<div class="panel-body">
 					 		<form action="validarCode.php" method="POST" role="form" id="formulario-login">
+					 			<legend>Inicio de sessión</legend>
 					 			<fieldset class="form-group">
 					 				<label for="formGroupExampleInput">Usuario</label>
 					 				<input type="text" class="form-control" name="txtUsuario" autofocus="autofocus" required="required" id="formGroupExampleInput" placeholder="Usuario">

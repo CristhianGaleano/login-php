@@ -5,8 +5,10 @@
 		if ($_SESSION['usuario']['privilegio'] == 1) {
 			header('location:admin.php');
 		}
+	}else{
+		header('location:login.php');	
 	}
-	#header('location:login.php');
+	
  ?>
 
     <nav class="container text-center">

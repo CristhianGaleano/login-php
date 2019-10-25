@@ -5,8 +5,9 @@
 		if ($_SESSION['usuario']['privilegio'] == 2) {
 			header('location:usuario.php');
 		}
+	}else{
+			header('location:login.php');
 	}
-	#header('location:login.php');
  ?>
 
     <nav class="container text-center">
@@ -16,7 +17,7 @@
 		    <p class="lead">Panel de control | <span class="badge badge-primary"><?php if ($_SESSION['usuario']['privilegio'] == 1) {
 		    	echo "Admin";
 		    }else{ echo "Cliente";} ?></span></p>
-		    <a class="btn btn-primary" href="login.php" role="button">Cerrar sessión</a>
+		    <a class="btn btn-primary" href="cerrar_sesion.php" role="button">LogOut</a>
 		  </div>
 		</div>
     </nav>

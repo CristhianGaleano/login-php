@@ -45,6 +45,27 @@ class UsuarioControlador
 
 	}
 
+
+
+	public function registrar($nombre,$usuario,$email,$password,$privilegio){
+		
+
+		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
+		$obj_usuario = new Usuario();
+		
+		$obj_usuario->setNombre($nombre);
+		$obj_usuario->setUsuario($usuario);
+		$obj_usuario->setEmail($email);
+		$obj_usuario->setPassword($password);
+		$obj_usuario->setPrivilegio($privilegio);
+
+	#	var_dump($obj_usuario);
+
+// Llamamos al metodo estatico
+		 return UsuarioDao::registro($obj_usuario);
+
+	}
+
 }#End class
 
  ?>
