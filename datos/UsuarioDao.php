@@ -158,6 +158,33 @@ echo "false";
 
 
 
+	/**
+	 * Method to get all users
+	 * @return [type]          [description]
+	 */
+	public static function get_usuarios(){
+		
+		$query = "SELECT * FROM usuarios";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+		$resultado->execute();
+
+		$filas=$resultado->fetchAll();
+
+		
+		return $filas;
+
+	}#END METHOD
+
+
+
 }#end clase
 
  ?>

@@ -47,7 +47,7 @@ class UsuarioControlador
 
 
 
-	public function registrar($nombre,$usuario,$email,$password,$privilegio){
+	 public function registrar($nombre,$usuario,$email,$password,$privilegio){
 		
 
 		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
@@ -66,6 +66,12 @@ class UsuarioControlador
 
 	}
 
+public function get_usuarios(){
+	return UsuarioDao::get_usuarios();
+}
 }#End class
+
+
+
 
  ?>
