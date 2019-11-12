@@ -17,4 +17,26 @@ function validar_campo($campo){
 	return $campo;
 }
 
+function getPrivilegio($privilegio){
+
+$auxiliar = '';
+
+	switch ($privilegio) {
+		case 1:
+			$auxiliar = 'Administrador';
+			break;
+
+		case 2:
+			$auxiliar = 'Usuario';
+			break;
+		
+		default:
+			$auxiliar = "- No definido -";
+			break;
+	}
+
+
+	return $auxiliar;
+}
+
  ?>

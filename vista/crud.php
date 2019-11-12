@@ -1,6 +1,7 @@
 <?php 
 	include 'partials/head.php';
 	include 'partials/menu.php';
+	include '../helps/help.php';
   ?>
 
 
@@ -9,7 +10,7 @@
   		include '../controlador/UsuarioControlador.php';
   		$filas = UsuarioControlador::get_usuarios();
 
-  		echo json_encode($filas);
+  		#echo json_encode($filas);
    ?>
 
     <div class="container">
@@ -23,13 +24,42 @@
 			<div class="row">
 				<!-- columna de 4 espacios y un espacio a la derecha -->
 				<div class="col-md-12 mx-auto">
-					 <div class="card">
-					 	<div class="card-header">
-					 	<div class="panel-body">
-					 		
-					 	</div>
-					 </div>
-					 </div>
+					<div class="table-responsive|table-responsive-sm|table-responsive-md|table-responsive-lg|table-responsive-xl">
+					 	<table class="table table-striped">
+					 	  <caption>List of users</caption>
+					 	  <thead class="thead-dark">
+					 	    <tr>
+					 	      <th scope="col">Id</th>
+					 	      <th scope="col">Nombre</th>
+					 	      <th scope="col">Usuario</th>
+					 	      <th scope="col">Email</th>
+					 	      <th scope="col">Password</th>
+					 	      <th scope="col">Privilegio</th>
+					 	      <th scope="col">Acción</th>
+					 	    </tr>
+					 	  </thead>
+					 	  <tbody>
+					 	   
+					 	   <?php 
+					 	   foreach ($filas as $value) {?>
+					 	   	
+					 	   	<tr>
+					 	   		<td><?php echo $value['id'] ?></td>
+					 	   		<td><?php echo $value['nombre'] ?></td>
+					 	   		<td><?php echo $value['usuario'] ?></td>
+					 	   		<td><?php echo $value['email'] ?></td>
+					 	   		<td><?php echo $value['password'] ?></td>
+					 	   		<td><?php echo getPrivilegio( $value['privilegio'] ) ?></td>
+					 	   		<td><a href="#" class="btn btn-success btn-sm">Editar</a></td>
+					 	   	</tr>
+					 	   
+					 	   <?php 
+					 	   }
+					 	    ?>
+					 	   
+					 	  </tbody>
+					 	</table>
+					 </div> 
 				</div>
 			</div>
 		</div>
