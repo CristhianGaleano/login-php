@@ -6,9 +6,6 @@ include '../helps/help.php';
 
 session_start();
 
-#para que retorne el response como un object
-header('Content-Type: application/json');
-$resultado = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
@@ -25,16 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$resultado = array('estado' => 'true' );
 
 	if (UsuarioControlador::registrar($txtNombre,$txtUsuario,$txtEmail,$txtPassword,$txtPrivilegio)) {
-	#echo 'Disque true';
-		$usuario = UsuarioControlador::get_usuario($txtUsuario,$txtPassword);
+	
 
 		
 		return print( json_encode( $resultado ) );
-	}else{
-	#	echo 'Disque falso';
-		$resultado = array('estado' => 'false' );
-		return print( json_encode( $resultado) );
-
 	}
 }
 
