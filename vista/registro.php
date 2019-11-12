@@ -13,10 +13,10 @@
 			<br>
 			<div class="row">
 				<!-- columna de 4 espacios y un espacio a la derecha -->
-				<div class="col-md-4 col-md-offset-3">
+				<div class="col-md-4 mx-auto">
 					 <div class="panel panel-default">
 					 	<div class="panel-body">
-					 		<form action="validarCode.php" method="POST" role="form" id="formulario-registro">
+					 		<form action="registroCode.php" method="POST" role="form" id="formulario-registro">
 					 			<legend>Registro de usuarios</legend>
 					 			<fieldset class="form-group">
 					 				<label for="formGroupExampleInput">Nombre</label>
@@ -39,7 +39,7 @@
 					 				<input type="text" class="form-control" name="txtPrivilegio" required="required" id="formGroupExampleInput2" placeholder="Privilegio">
 					 			</fieldset> -->
 
-					 			<button class="btn btn-success" type="submit" value="Ingresar">Registrar</button>
+					 			<button class="btn btn-success" type="submit" value="Registrar">Registrar</button>
 					 		</form>
 					 	</div>
 					 </div>

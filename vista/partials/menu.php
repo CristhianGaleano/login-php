@@ -32,7 +32,11 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contacto</a>
-          </li> <?php   
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="crud.php">Mantenimiento</a>
+          </li>
+           <?php   
           } ?>
           
         </ul>

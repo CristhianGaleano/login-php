@@ -13,8 +13,9 @@
 			<br>
 			<div class="row">
 				<!-- columna de 4 espacios y un espacio a la derecha -->
-				<div class="col-md-4 col-md-offset-3">
-					 <div class="panel panel-default">
+				<div class="col-md-4 mx-auto">
+					 <div class="card">
+					 	<div class="card-header">
 					 	<div class="panel-body">
 					 		<form action="validarCode.php" method="POST" role="form" id="formulario-login">
 					 			<legend>Inicio de sessión</legend>
@@ -30,6 +31,7 @@
 					 			<button class="btn btn-success" type="submit" value="Ingresar">Ingresar</button>
 					 		</form>
 					 	</div>
+					 </div>
 					 </div>
 				</div>
 			</div>

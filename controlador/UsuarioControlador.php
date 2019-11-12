@@ -47,7 +47,7 @@ class UsuarioControlador
 
 
 
-	public function registrar($nombre,$usuario,$email,$password,$privilegio){
+	 public function registrar($nombre,$usuario,$email,$password,$privilegio){
 		
 
 		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
@@ -58,14 +58,20 @@ class UsuarioControlador
 		$obj_usuario->setEmail($email);
 		$obj_usuario->setPassword($password);
 		$obj_usuario->setPrivilegio($privilegio);
-
-	#	var_dump($obj_usuario);
-
+		#echo "COntrolador<br>";
+#var_dump($obj_usuario);
+	
 // Llamamos al metodo estatico
 		 return UsuarioDao::registro($obj_usuario);
 
 	}
 
+public function get_usuarios(){
+	return UsuarioDao::get_usuarios();
+}
 }#End class
+
+
+
 
  ?>
