@@ -22,10 +22,14 @@
 			<br>
 			<br>
 			<div class="row">
-				<!-- columna de 4 espacios y un espacio a la derecha -->
+				<div class="md-12">
+					<a href="crear_usuario_form.php" class="btn btn-primary">Crear usuario +</a>
+					<br>
+					<br>
+				</div>
 				<div class="col-md-12 mx-auto">
 					<div class="table-responsive|table-responsive-sm|table-responsive-md|table-responsive-lg|table-responsive-xl">
-					 	<table class="table table-striped">
+					 	<table class="table table-hover">
 					 	  <caption>List of users</caption>
 					 	  <thead class="thead-dark">
 					 	    <tr>
@@ -39,10 +43,9 @@
 					 	    </tr>
 					 	  </thead>
 					 	  <tbody>
-					 	   
-					 	   <?php 
+
+					 	   <?php
 					 	   foreach ($filas as $value) {?>
-					 	   	
 					 	   	<tr>
 					 	   		<td><?php echo $value['id'] ?></td>
 					 	   		<td><?php echo $value['nombre'] ?></td>

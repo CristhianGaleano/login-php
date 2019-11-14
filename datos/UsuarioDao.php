@@ -157,6 +157,46 @@ echo "false";
 	}
 
 
+	**
+	 * Crea nuevo usuario
+	 * @param  Object usuario [description]
+	 * @return boolean          [description]
+	 */
+	public static function crear_nuevo_usuario($usuario_obj){
+		
+		// var_dump($usuario);
+
+
+		$query = "INSERT INTO usuarios(nombre,usuario,email,password,privilegio) VALUES (:nombre,:usuario,:email,:password,:privilegio)";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+
+
+
+
+		$resultado->bindValue(":nombre", $usuario_obj->getNombre());
+		$resultado->bindValue(":usuario", $usuario_obj->getUsuario());
+		$resultado->bindValue(":email", $usuario_obj->getEmail());
+		$resultado->bindValue(":password", $usuario_obj->getPassword());
+		$resultado->bindValue(":privilegio",$usuario_obj->getPrivilegio());
+
+		if ($resultado->execute()) {
+			#echo "<br>TRUE<br>";
+			return true;
+		}
+
+		return false;
+echo "false";
+	}
+
+
 
 	/**
 	 * Method to get all users
