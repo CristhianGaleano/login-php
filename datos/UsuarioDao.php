@@ -157,7 +157,7 @@ echo "false";
 	}
 
 
-	**
+	/**
 	 * Crea nuevo usuario
 	 * @param  Object usuario [description]
 	 * @return boolean          [description]
