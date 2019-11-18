@@ -39,6 +39,7 @@
 					 	      <th scope="col">Email</th>
 					 	      <th scope="col">Password</th>
 					 	      <th scope="col">Privilegio</th>
+					 	      <th scope="col"></th>
 					 	      <th scope="col">Acción</th>
 					 	    </tr>
 					 	  </thead>
@@ -54,6 +55,7 @@
 					 	   		<td><?php echo $value['password'] ?></td>
 					 	   		<td><?php echo getPrivilegio( $value['privilegio'] ) ?></td>
 					 	   		<td><a href="crear_usuario_form.php?id=<?php echo $value['id'] ?>" class="btn btn-success btn-sm">Editar</a></td>
+					 	   		<td><a href="eliminar_usuario.php?id=<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Eliminar</a></td>
 					 	   	</tr>
 					 	   
 					 	   <?php

@@ -119,6 +119,38 @@ class UsuarioDao extends Conexion{
 
 
 
+
+/**
+	 * Metodo que sirve para eliminar usuario
+	 * @param  Id 
+	 * @return Object Usuario        
+	 */
+	public static function eliminar_usuario($id){
+		echo "En delete";
+		
+		$query = "DELETE FROM usuarios WHERE id=:id LIMIT 1";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+		$resultado->bindParam(":id", $id);
+		$resultado->execute();
+
+		if ($resultado->execute()) {
+			return true;
+		}
+ 
+		return false;
+
+	}#END METHOD
+
+
+
 /**
 	 * Metodo que sirve para traer datos del usuario
 	 * @param  [type] $usuario [description]

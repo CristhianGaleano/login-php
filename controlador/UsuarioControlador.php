@@ -97,6 +97,11 @@ public function get_usuarioById($id){
 }
 
 
+public function eliminar_usuario($id){
+	return UsuarioDao::eliminar_usuario($id);
+}
+
+
 
 }#End class
 
