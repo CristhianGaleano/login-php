@@ -66,12 +66,13 @@ class UsuarioControlador
 
 	}
 
-	public function crear_nuevo_usuario($nombre,$usuario,$email,$password,$privilegio){
+	public function crear_nuevo_usuario($id,$nombre,$usuario,$email,$password,$privilegio){
 		
 
 		// Crear objeto d etipo usuario, no se importa nuevamente porque ya se hi
 		$obj_usuario = new Usuario();
 		
+		$obj_usuario->setId($id);
 		$obj_usuario->setNombre($nombre);
 		$obj_usuario->setUsuario($usuario);
 		$obj_usuario->setEmail($email);
@@ -88,6 +89,15 @@ class UsuarioControlador
 public function get_usuarios(){
 	return UsuarioDao::get_usuarios();
 }
+
+
+
+public function get_usuarioById($id){
+	return UsuarioDao::get_usuarioById($id);
+}
+
+
+
 }#End class
 
 

@@ -77,6 +77,48 @@ class UsuarioDao extends Conexion{
 	}
 
 
+
+
+/**
+	 * Metodo que sirve para obtener un usuario por su Id
+	 * @param  Id 
+	 * @return Object Usuario        
+	 */
+	public static function get_usuarioById($id){
+		
+		$query = "SELECT id,nombre,usuario,privilegio,fecha_registro,email FROM usuarios WHERE id=:id LIMIT 1";
+
+		/**
+		 * Call getConexion()
+		 */
+		self::getConexion();
+
+
+
+		$resultado = self::$cn->prepare($query);
+		
+		$resultado->bindParam(":id", $id);
+		
+
+		$resultado->execute();
+
+		$filas=$resultado->fetch();
+
+		#Creamos el objeto de tipo usuario
+		$usuario  = new Usuario();
+		$usuario->setId($filas['id']);
+		$usuario->setNombre($filas['nombre']);
+		$usuario->setUsuario($filas['usuario']);
+		$usuario->setEmail($filas['email']);
+		$usuario->setPrivilegio($filas['privilegio']);
+		$usuario->setFecha_registro($filas['fecha_registro']);
+
+		return $usuario;
+
+	}#END METHOD
+
+
+
 /**
 	 * Metodo que sirve para traer datos del usuario
 	 * @param  [type] $usuario [description]
@@ -123,23 +165,17 @@ class UsuarioDao extends Conexion{
 	 * @return boolean          [description]
 	 */
 	public static function registro($usuario_obj){
-		
+
 		// var_dump($usuario);
-
-
 		$query = "INSERT INTO usuarios(nombre,usuario,email,password,privilegio) VALUES (:nombre,:usuario,:email,:password,:privilegio)";
+
 
 		/**
 		 * Call getConexion()
 		 */
 		self::getConexion();
 
-
-
 		$resultado = self::$cn->prepare($query);
-
-
-
 
 		$resultado->bindValue(":nombre", $usuario_obj->getNombre());
 		$resultado->bindValue(":usuario", $usuario_obj->getUsuario());
@@ -165,9 +201,13 @@ echo "false";
 	public static function crear_nuevo_usuario($usuario_obj){
 		
 		// var_dump($usuario);
+		$query = "";
 
-
-		$query = "INSERT INTO usuarios(nombre,usuario,email,password,privilegio) VALUES (:nombre,:usuario,:email,:password,:privilegio)";
+		if (is_null($usuario_obj->getId())) {
+			$query = "INSERT INTO usuarios(nombre,usuario,email,password,privilegio) VALUES (:nombre,:usuario,:email,:password,:privilegio)";
+		}else{
+			$query = "UPDATE usuarios SET nombre=:nombre,usuario=:usuario,email=:email,password=:password,privilegio=:privilegio WHERE id=:id";
+		}
 
 		/**
 		 * Call getConexion()
@@ -180,6 +220,9 @@ echo "false";
 
 
 
+		if (!is_null($usuario_obj->getId())) {
+			$resultado->bindValue(":id", $usuario_obj->getId());
+		}
 
 		$resultado->bindValue(":nombre", $usuario_obj->getNombre());
 		$resultado->bindValue(":usuario", $usuario_obj->getUsuario());

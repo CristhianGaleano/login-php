@@ -53,13 +53,13 @@
 					 	   		<td><?php echo $value['email'] ?></td>
 					 	   		<td><?php echo $value['password'] ?></td>
 					 	   		<td><?php echo getPrivilegio( $value['privilegio'] ) ?></td>
-					 	   		<td><a href="#" class="btn btn-success btn-sm">Editar</a></td>
+					 	   		<td><a href="crear_usuario_form.php?id=<?php echo $value['id'] ?>" class="btn btn-success btn-sm">Editar</a></td>
 					 	   	</tr>
 					 	   
-					 	   <?php 
+					 	   <?php
 					 	   }
 					 	    ?>
-					 	   
+
 					 	  </tbody>
 					 	</table>
 					 </div> 

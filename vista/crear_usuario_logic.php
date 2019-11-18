@@ -10,8 +10,9 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 
-	if (isset($_POST['txtNombre'])  && isset($_POST['txtUsuario']) && isset($_POST['txtPassword']) && isset($_POST['txtEmail']) ) {
+	if (isset($_POST['id'])  && isset($_POST['txtNombre'])  && isset($_POST['txtUsuario']) && isset($_POST['txtPassword']) && isset($_POST['txtEmail']) ) {
 	
+	$id = validar_campo($_POST['id']);
 	$txtNombre = validar_campo($_POST['txtNombre']);
 	$txtUsuario = validar_campo($_POST['txtUsuario']);
 	$txtPassword = validar_campo($_POST['txtPassword']);
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	#Crea al nuevo user return en caso de exito.
-	if (UsuarioControlador::crear_nuevo_usuario($txtNombre,$txtUsuario,$txtEmail,$txtPassword,$txtPrivilegio)) {
+	if (UsuarioControlador::crear_nuevo_usuario($id,$txtNombre,$txtUsuario,$txtEmail,$txtPassword,$txtPrivilegio)) {
 
 
 		header("location:crud.php");
