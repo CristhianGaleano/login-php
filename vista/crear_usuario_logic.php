@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header("location:crud.php");
 	}else{
 	header("location:crud.php?error=1");
-
 	}
 }else{
 	header("location:crear_usuario_form.php?error=1");
